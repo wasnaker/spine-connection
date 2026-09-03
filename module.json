@@ -1,0 +1,12 @@
+{
+    "name": "Connection",
+    "alias": "connection",
+    "description": "Module Connection for laravelspine — customer<->surveyor relation via invite link.",
+    "keywords": ["spine", "connection", "customer", "surveyor"],
+    "priority": 0,
+    "providers": [
+        "Modules\\Connection\\Providers\\ConnectionServiceProvider"
+    ],
+    "files": [],
+    "requires": ["Customer", "Surveyor"]
+}
