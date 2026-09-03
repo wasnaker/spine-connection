@@ -36,18 +36,11 @@ return [
         'permissions' => [
             'connection:view', 'connection:create', 'connection:approve', 'connection:cancel',
         ],
-        'roles' => [
-            ['name' => 'connection',              'label' => 'Connection',
-             'permissions' => ['connection:view']],
-            ['name' => 'connection-admin',        'label' => 'Connection Admin',
-             'permissions' => ['connection:*']],
-        ],
-        'grants' => [
-            // Entitas customer/surveyor (via admin mereka) dapat mengelola koneksinya.
-            'customer-admin'       => ['connection:view', 'connection:create', 'connection:approve', 'connection:cancel'],
-            'customer-branch-admin'=> ['connection:view', 'connection:create', 'connection:approve', 'connection:cancel'],
-            'surveyor-admin'       => ['connection:view', 'connection:create', 'connection:approve', 'connection:cancel'],
-            'surveyor-branch-admin'=> ['connection:view', 'connection:create', 'connection:approve', 'connection:cancel'],
-        ],
+        // Permission Connection di-assign langsung di definisi role pemilik
+        // (manifest Customer & Surveyor: customer-admin, customer-branch-admin,
+        // surveyor-admin, surveyor-branch-admin) — bukan grants di sini,
+        // karena syncPermissions role pemilik akan menimpa grant lintas modul.
+        'roles' => [],
+        'grants' => [],
     ],
 ];
