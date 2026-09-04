@@ -55,9 +55,9 @@ class ConnectionController extends Controller
             $query->where('customer_id', $actor['entity']->id);
         } elseif ($actor['type'] === 'surveyor') {
             $query->where('surveyor_id', $actor['entity']->id);
-        } else {
-            return response()->json(['message' => 'Akun tidak terikat ke entity customer/surveyor.'], 403);
         }
+        // Actor null = platform (admin/staff pemegang connection:view):
+        // lihat SEMUA connection. Filter hanya utk user entity.
 
         if ($request->filled('status') && in_array($request->query('status'), ['pending', 'active', 'cancelled'])) {
             $query->where('status', $request->query('status'));
