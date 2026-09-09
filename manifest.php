@@ -32,6 +32,17 @@ return [
         ],
     ],
 
+    'detail_tabs' => [
+        [
+            'slug'       => 'overview',
+            'label'      => 'Overview',
+            'icon'       => '👁️',
+            'api'        => '/api/v1/connections',
+            'position'   => 10,
+            'permission' => 'connection:view',
+        ],
+    ],
+
     'rbac' => [
         'permissions' => [
             'connection:view', 'connection:create', 'connection:approve', 'connection:cancel',
